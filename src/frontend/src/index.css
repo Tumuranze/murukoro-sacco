@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 1 0 0;
+    --foreground: 0.12 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0 0;
+    --primary: 0.24 0.115 263;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.01 263;
+    --secondary-foreground: 0.24 0.115 263;
+    --muted: 0.96 0.005 263;
+    --muted-foreground: 0.45 0.03 263;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.12 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.015 263;
+    --input: 0.88 0.015 263;
+    --ring: 0.24 0.115 263;
+    --radius: 0.5rem;
+    --chart-1: 0.24 0.115 263;
+    --chart-2: 0.72 0.12 75;
+    --chart-3: 0.55 0.09 263;
+    --chart-4: 0.38 0.13 263;
+    --chart-5: 0.85 0.08 75;
+    --sidebar: 0.24 0.115 263;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.32 0.1 263;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.32 0.1 263;
+    --sidebar-ring: 0.72 0.12 75;
+
+    /* SACCO custom tokens */
+    --navy: #0a1f5c;
+    --navy-light: #1a3a8c;
+    --navy-dark: #060f2e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-navy {
+    color: #0a1f5c;
+  }
+  .text-navy-light {
+    color: #1a3a8c;
+  }
+  .text-gold {
+    color: #c9a84c;
+  }
+  .bg-navy {
+    background-color: #0a1f5c;
+  }
+  .bg-navy-light {
+    background-color: #1a3a8c;
+  }
+  .bg-navy-dark {
+    background-color: #060f2e;
+  }
+  .bg-gold {
+    background-color: #c9a84c;
+  }
+  .border-navy {
+    border-color: #0a1f5c;
+  }
+  .border-gold {
+    border-color: #c9a84c;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl font-bold text-navy;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+  .section-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #c9a84c;
+    border-radius: 2px;
+  }
+  .section-heading-center {
+    @apply font-display text-3xl md:text-4xl font-bold text-navy;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+  .section-heading-center::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #c9a84c;
+    border-radius: 2px;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .btn-navy {
+    @apply bg-navy text-white font-semibold py-3 px-7 rounded-full hover:bg-navy-light transition-all duration-200 inline-block;
+    background-color: #0a1f5c;
+    color: white;
+  }
+  .btn-navy:hover {
+    background-color: #1a3a8c;
+  }
+
+  .btn-outline-white {
+    @apply font-semibold py-3 px-7 rounded-full border-2 border-white text-white hover:bg-white transition-all duration-200 inline-block;
+  }
+  .btn-outline-white:hover {
+    color: #0a1f5c;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
